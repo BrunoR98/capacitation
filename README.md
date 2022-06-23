@@ -1,4 +1,4 @@
-# esolutions capacitation<br>
+# Capacitación esolutions<br>
 - Cada branch pertenecerá a un trabajo práctico semanal.<br>
 - master sera el branch definitivo de la aplicación estable.
 
