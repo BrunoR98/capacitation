@@ -1,0 +1,23 @@
+body{
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+#json-textarea{
+    padding: 25px;
+    font-size: 20px;
+    min-height: 600px;
+    min-width: 600px;
+    resize: none;
+}
+
+#conv-btn{
+    padding: 15px;
+    margin-top: 5px;
+    outline: none;
+}
+
+#json-textarea:focus::placeholder{
+    color: transparent;
+}
