@@ -48,7 +48,7 @@ const jsonParse = () => {
     //Separo en dos arrays diferentes las claves y los valores
     for(let i = 0; i < prop.length; i++){
         firstMember.push(prop[i][0].replaceAll("\"","").replaceAll("\n","").replaceAll(" ","").replaceAll('{',''));
-        secondsMember.push(prop[i][1].replaceAll("\n","").replaceAll('}','').trim());
+        secondsMember.push(prop[i][1].replaceAll("\"","").replaceAll("\n","").replaceAll('}','').trim());
     }
 
     /*Utilizo este array para trabajar el arreglo anidado,
@@ -67,13 +67,13 @@ const jsonParse = () => {
 
     for(let j = 0; j < prop.length; j++){
         firstSubObj.push(prop[j][0].replaceAll("\"","").replaceAll("\n","").replaceAll(" ","").replaceAll('{',''))
-        firstSubObj.push(prop[j][1].replaceAll("\n","").replaceAll('}','').trim());
+        firstSubObj.push(prop[j][1].replaceAll("\"","").replaceAll("\n","").replaceAll('}','').trim());
     }
 
 
     for(let k = 2; k < prop.length; k++){
         secondSubObj.push(prop[k][0].replaceAll("\"","").replaceAll("\n","").replaceAll(" ","").replaceAll('{',''))
-        secondSubObj.push(prop[k][1].replaceAll("\n","").replaceAll('}','').trim());
+        secondSubObj.push(prop[k][1].replaceAll("\"","").replaceAll("\n","").replaceAll('}','').trim());
     }
 
 
