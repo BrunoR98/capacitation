@@ -1,23 +1,35 @@
 
 async function getUser(forma) {
-    await forma();
+    const output = await forma();
+    console.log(output);
 }
 
-async function forma1 () {
+async function forma1() {
     try{
-        const promise = await fetch("https://jsonplaceholder.typicode.com/users");
+        const userUrl = "https://jsonplaceholder.typicode.com/users";
+        const promise = await fetch(userUrl);
         const users = await promise.json();
-        const array = userDestructuring(users);
-        console.log(array);
+        return userDestructuring(users);
     } catch (e) {
         console.log(`Ha ocurrido un error inesperado: ${e}}`);
     }
 }
 
+function forma2() {
+    const userUrl = "https://jsonplaceholder.typicode.com/users";
+    const promise = fetch(userUrl);
+    return new Promise((resolve, reject) => {
+        resolve(
+                promise.then(fetchUser => {return fetchUser.json()})
+                .then(userJson => {return userDestructuring(userJson)})
+                .then(userArray => {return userArray}))
+        reject("Ha ocurrido un error inesperado");
+    })
+}   
 
-const userDestructuring = (data) => {
-    const array = [];
-    for(userObj of data){
+const userDestructuring = (users) => {
+    let array = [];
+    for(userObj of users){
         const {
                 id,
                 name,
@@ -62,7 +74,22 @@ const userDestructuring = (data) => {
             }
     array.push(newUser);
     }
-
     return array;
 }
 
+
+function getProducts(onSuccess) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (onSuccess) {
+                resolve([
+                    {id: 1, name: "Samsung Galaxy"},
+                    {id: 2, name: "Yerba Hoja Verde"},
+                    {id: 3, name: "Caramelos"},
+                ]);
+            } else {
+                reject("Ha ocurrido un error");
+            }
+        }, 2000);
+    })
+}   
