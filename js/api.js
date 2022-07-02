@@ -37,8 +37,8 @@ async function forma1() {
     if (arguments.length === 0) {
         try{
             const userUrl = "https://jsonplaceholder.typicode.com/users";
-            const promise = await fetch(userUrl);
-            const users = await promise.json();
+            const userPromise = await fetch(userUrl);
+            const users = await userPromise.json();
             return userDestructuring(users);
         } catch (e) {
             console.log(`Ha ocurrido un error inesperado: ${e}}`);
