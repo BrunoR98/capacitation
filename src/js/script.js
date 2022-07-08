@@ -1,5 +1,6 @@
 const http = require("http");
-const host = "localhost";
+
+const hostname = "localhost";
 const port = 8000;
 
 class Usuarios {
@@ -10,7 +11,7 @@ class Usuarios {
         this.age = age;
         this.country = country;
     }
-}
+};
 
 const getUserList = [
     new Usuarios(1, "Bruno", "Renaudo", 24, "Argentina"),
@@ -21,4 +22,22 @@ const getUserList = [
 ];
 
 const userJson = JSON.stringify(getUserList);
+
+const requestListener = (req, res) => {
+    if(req.url === "/usuarios") {
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(userJson);
+    } else {
+        res.writeHead(404, {"Content-Type": "application/json"});
+        const userError = {
+            statusCode: 404,
+            message: `Resource not found in http://${hostname}:${port}${req.url}. Try again with another url.`,
+        }
+        res.end(JSON.stringify(userError));
+    }
+};
+
+http.createServer(requestListener).listen(port, hostname, () => {
+    console.log(`Servidor ejecutandose en http://${hostname}:${port}`);
+}); 
 

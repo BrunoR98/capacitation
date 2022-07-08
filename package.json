@@ -4,6 +4,7 @@
   "description": "return a json with users in a specific url",
   "main": "src/js/script.js",
   "scripts": {
+    "start" : "node src/js/script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
