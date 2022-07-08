@@ -14,3 +14,8 @@ Para iniciar el servidor sin scripts:
 ```
 node src/js/script.js
 ```
+
+## Tecnologías
+Projecto creado con:
+* Node.js versión: 16.15.1
+* npm     versión: 8.13.1
