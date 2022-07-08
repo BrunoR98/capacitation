@@ -30,7 +30,8 @@ const userList = [
     new Usuarios(5, "Sergio", "López", 40, "México"),
 ];
 
-const userJson = JSON.stringify(userList);
+let userError   = {};
+const userJson  = JSON.stringify(userList);
 
 const requestListener = (req, res) => {
     if(req.url === "/usuarios") {
@@ -38,7 +39,7 @@ const requestListener = (req, res) => {
         res.end(userJson);
     } else {
         res.writeHead(404, {"Content-Type": "application/json"});
-        const userError = {
+        userError = {
             statusCode: 404,
             message: `Resource not found in http://${hostname}:${port}${req.url}. Try again with another url.`,
         }
