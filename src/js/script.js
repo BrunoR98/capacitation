@@ -22,7 +22,7 @@ class Usuarios {
     }
 };
 
-const getUserList = [
+const userList = [
     new Usuarios(1, "Bruno", "Renaudo", 24, "Argentina"),
     new Usuarios(2, "Homero", "Simpson", 66, "Estados Unidos"),
     new Usuarios(3, "Charles", "Leclerc", 24, "Mónaco"),
@@ -30,7 +30,7 @@ const getUserList = [
     new Usuarios(5, "Sergio", "López", 40, "México"),
 ];
 
-const userJson = JSON.stringify(getUserList);
+const userJson = JSON.stringify(userList);
 
 const requestListener = (req, res) => {
     if(req.url === "/usuarios") {
@@ -50,5 +50,4 @@ http
     .createServer(requestListener)
     .listen(port, hostname, () => {
         console.log(`Servidor ejecutandose en http://${hostname}:${port}`);
-    }); 
-
+    });
