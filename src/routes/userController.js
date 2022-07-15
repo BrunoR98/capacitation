@@ -1,9 +1,16 @@
 const User = require('../models/userModel');
-// const Company = require('../models/companyModel');
+const Company = require('../models/companyModel');
 
 exports.getAll = async (request, response) => {
     try {
-        const allUsers = await User.find();
+        const allUsers = await User.find({},{
+            __v: 0
+        })
+        .populate('company', {
+            name: 1,
+            _id: 0
+        });
+
         if(allUsers.length === 0){
             throw new Error('The database is empty');
         }
@@ -26,14 +33,34 @@ exports.getOne = async (request, response) => {
 };
 
 exports.createUser = async (request, response) => {
-    const user = new User({
-        name: request.body.name,
-        username: request.body.username,
-        email: request.body.email,
-    });
+    const {
+        name,
+        username,
+        email,
+        companyId
+    } = request.body;
+
+    let company = await Company.findById(companyId);
+    let user = {};
+
+    if(company !== null){
+        user = new User({
+            name: name,
+            username: username,
+            email: email,
+            company: company
+        })
+    } else{
+        user = new User({
+            name: name,
+            username: username,
+            email: email
+        })
+    }
     
     try {
         const userToSave = await user.save();
+        // company.save 
         response.status(200).json(userToSave);  
     } catch (e) {
         response.status(500).json({message: e.message});
