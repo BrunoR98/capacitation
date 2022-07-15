@@ -11,9 +11,10 @@ exports.getAll = async (request, response) => {
             _id: 0
         });
 
-        if(allUsers.length === 0){
+        if (allUsers.length === 0) {
             throw new Error('The database is empty');
         }
+
         response.status(200).json(allUsers);
     } catch (e) {
         response.status(500).json({message: e.message});
@@ -23,9 +24,11 @@ exports.getAll = async (request, response) => {
 exports.getOne = async (request, response) => {
     try {
         const user = await User.findById(request.params.id);
-        if(user === null){
+
+        if (user === null) {
             throw new Error('User not found');
         }
+
         response.status(200).json(user);
     } catch (e) {
         response.status(500).json({message: e.message});
@@ -37,30 +40,29 @@ exports.createUser = async (request, response) => {
         name,
         username,
         email,
-        companyId
+        company
     } = request.body;
 
-    let company = await Company.findById(companyId);
+    let userCompany = await Company.findById(company);
     let user = {};
 
-    if(company !== null){
+    if (userCompany !== null) {
         user = new User({
             name: name,
             username: username,
             email: email,
-            company: company
-        })
-    } else{
+            company: userCompany
+        });
+    } else {
         user = new User({
             name: name,
             username: username,
             email: email
-        })
+        });
     }
     
     try {
         const userToSave = await user.save();
-        // company.save 
         response.status(200).json(userToSave);  
     } catch (e) {
         response.status(500).json({message: e.message});
@@ -73,7 +75,7 @@ exports.updateUser = async (request, response) => {
         const updatedUser = request.body;
         const options = { new : true};
         const user = await User.findByIdAndUpdate(userId, updatedUser, options);
-        if(user === null){
+        if (user === null) {
             throw new Error('User not found');
         }
         response.status(200).json(user);
@@ -85,7 +87,7 @@ exports.updateUser = async (request, response) => {
 exports.deleteUser = async (request, response) => {
     try {
         const user = await User.findByIdAndDelete(request.params.id);
-        if(user === null){
+        if (user === null) {
             throw new Error('User not found');
         }
         response.status(200).json(user);
