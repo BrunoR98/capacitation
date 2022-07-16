@@ -89,9 +89,9 @@ exports.createUser = async (request, response) => {
 
 exports.updateUser = async (request, response) => {
     try {
-        const userId = request.params.id;
+        const userId      = request.params.id;
         const updatedUser = request.body;
-        const options = { new : true};
+        const options     = { new : true };
 
         const user = await User.findByIdAndUpdate(userId, updatedUser, options);
 

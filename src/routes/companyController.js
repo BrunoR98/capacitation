@@ -49,7 +49,7 @@ exports.updateCompany = async (request, response) => {
     try {
         const companyId      = request.params.id;
         const updatedCompany = request.body;
-        const options        = { new : true};
+        const options        = { new : true };
 
         const company = await Company.findByIdAndUpdate(companyId, updatedCompany, options);
 
