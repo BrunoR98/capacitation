@@ -4,7 +4,8 @@
   "description": "get users from an API and relate them to his company",
   "main": "src/js/script.js",
   "scripts": {
-    "start": "nodemon src/js/script.js"
+    "start": "node src/js/script.js",
+    "dev": "nodemon src/js/script.js"
   },
   "repository": {
     "type": "git",

@@ -2,12 +2,10 @@ const Company = require('../models/companyModel');
 
 exports.getAll = async (request, response) => {
     try {
-        const allCompanies = await Company.find({}, {
-            __v: 0
-        });
+        const allCompanies = await Company.find({}, { __v: 0 });
 
         if (allCompanies.length === 0) {
-            throw new Error('The database is empty');
+            throw new Error('The database is empty.');
         }
 
         response.status(200).json(allCompanies);
@@ -18,10 +16,12 @@ exports.getAll = async (request, response) => {
 
 exports.getOne = async (request, response) => {
     try {
-        const company = await Company.findById(request.params.id);
+        const company = await Company.findById(request.params.id, { __v: 0 });
+
         if (company === null) {
-            throw new Error('Company not found');
+            throw new Error('Company not found.');
         }
+
         response.status(200).json(company);
     } catch (e) {
         response.status(500).json({message: e.message});
@@ -54,7 +54,7 @@ exports.updateCompany = async (request, response) => {
         const company = await Company.findByIdAndUpdate(companyId, updatedCompany, options);
 
         if (company === null) {
-            throw new Error('Company not found');
+            throw new Error('Company not found.');
         }
 
         response.status(200).json(company);
@@ -68,7 +68,7 @@ exports.deleteCompany = async (request, response) => {
         const company = await Company.findByIdAndDelete(request.params.id);
 
         if (company === null) {
-            throw new Error('Company not found');
+            throw new Error('Company not found.');
         }
 
         response.status(200).json(company);

@@ -7,3 +7,6 @@ node_modules
 #requests tests
 userRequests.http
 companyRequests.http
+
+#gitignore
+.gitignore

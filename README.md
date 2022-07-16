@@ -11,9 +11,9 @@ Para iniciar el servidor usando npm:
 ```
 npm start
 ```
-Para iniciar el servidor sin scripts:
+Para iniciar el servidor en modo desarrollo:
 ```
-node src/js/script.js
+npm run dev
 ```
 
 ## Tecnologías

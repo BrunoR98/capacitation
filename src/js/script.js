@@ -1,3 +1,10 @@
+/**
+ * Author: Renaudo Bruno, Agustín
+ * Date: 15/07/22
+ * Comments: You can create an 'user' without a company, later you can update that property,
+ *  also you can create it with a previously created company.
+ */
+
 require('dotenv').config({
     path: `src/config/.env`
 });

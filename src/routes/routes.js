@@ -5,6 +5,8 @@ const userController    = require('./userController');
 const companyController = require('./companyController');
 
 //User routes
+router.get('/', userController.start);
+
 router.get('/users', userController.getAll);
 
 router.get('/users/:id', userController.getOne);
