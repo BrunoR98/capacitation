@@ -1,15 +1,15 @@
 import React from 'react';
 import TripBuilder from '../TripBuilder/TripBuilder';
 import TripSummary from '../TripSummary/TripSummary';
-import TripContext from '../Context/TripContext/TripContext';
+import ItemContext from '../Context/ItemContext/ItemContext';
 import { details, imageUrls } from '../utils/TripsDetails';
 
 export default function TripMaker() {
     return(
         <div>
-            <TripContext.Provider value={{details, imageUrls}}>
+            <ItemContext.Provider value={{details, imageUrls}}>
                 <TripBuilder />
-            </TripContext.Provider>
+            </ItemContext.Provider>
             <TripSummary />
         </div>
     )

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { createUseStyles } from 'react-jss';
 import TripItem from '../TripItem/TripItem';
 import TripButton from '../TripButton/TripButton';
-import TripContext from '../Context/TripContext/TripContext';
+import ItemContext from '../Context/ItemContext/ItemContext';
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -24,7 +24,7 @@ const useStyles = createUseStyles({
 
 export default function TripBuilder() {
     const classes = useStyles();
-    const { details, imageUrls } = useContext(TripContext);
+    const { details, imageUrls } = useContext(ItemContext);
 
     return(
         <div className={classes.wrapper}>
