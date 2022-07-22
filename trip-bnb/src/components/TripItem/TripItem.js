@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createUseStyles } from 'react-jss';
 import TripButton from '../TripButton/TripButton';
 
@@ -17,6 +18,8 @@ const useStyles = createUseStyles({
         }
     },
     bottomBtn: {
+        display: 'inline-block',
+        float: 'right',
         textAlign: 'right',
         marginTop: '12px',
     },
@@ -28,7 +31,7 @@ const useStyles = createUseStyles({
     },
 });
 
-export default function TripItem({ image, details }) {
+export default function TripItem({ image, details, button }) {
     const classes = useStyles();
     
     return( 
@@ -44,8 +47,14 @@ export default function TripItem({ image, details }) {
                 </div>
             </div>
             <div className={classes.bottomBtn}>
-                <TripButton />
+                <TripButton button={button} details={details}/>
             </div>
         </div>
     )
+}
+
+TripItem.propTypes = {
+    image: PropTypes.object.isRequired,
+    details: PropTypes.object.isRequired,
+    button: PropTypes.object.isRequired,
 }

@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
-import { createUseStyles } from 'react-jss';
 import TripItem from '../TripItem/TripItem';
 import TripButton from '../TripButton/TripButton';
+
+//Contexts
 import ItemContext from '../Context/ItemContext/ItemContext';
+
+import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -24,22 +27,37 @@ const useStyles = createUseStyles({
 
 export default function TripBuilder() {
     const classes = useStyles();
-    const { details, imageUrls } = useContext(ItemContext);
+    const { details, imageUrls, button } = useContext(ItemContext);
 
     return(
         <div className={classes.wrapper}>
             <div className={classes.topBtn}>
-                <TripButton />
+                <TripButton 
+                    button={button.cancelarBtn} 
+                    details={details}
+                />
             </div>
             <div className={classes.itemsWrapper}>
                 <div>
-                    <TripItem image={imageUrls.img01} details={details.trip01}/>
+                    <TripItem 
+                        image={imageUrls.img01} 
+                        details={details.hawai}
+                        button={button.promoBtn}
+                    />
                 </div>
                 <div>
-                    <TripItem image={imageUrls.img02} details={details.trip02}/>
+                    <TripItem 
+                        image={imageUrls.img02} 
+                        details={details.brasil} 
+                        button={button.reservarBtn}
+                    />
                 </div>
                 <div>
-                    <TripItem image={imageUrls.img03} details={details.trip03}/>
+                    <TripItem 
+                        image={imageUrls.img03} 
+                        details={details.usa}
+                        button={button.comprarBtn}
+                    />
                 </div>
             </div>
         </div>

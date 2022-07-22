@@ -15,17 +15,17 @@ export const imageUrls = {
 
 
 export const details = {
-    trip01: {
+    hawai: {
         name: 'Hawai',
         description: 'Descripción de Hawai',
         price: 'USD 2500',
     },
-    trip02: {
+    brasil: {
         name: 'Brasil',
         description: 'Descripción de Brasil',
         price: 'USD 1500',
     },
-    trip03: {
+    usa: {
         name: 'United States',
         description: 'Descripción de United States',
         price: 'USD 3000',
