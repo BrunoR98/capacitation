@@ -28,23 +28,19 @@ const useStyles = createUseStyles({
     },
 });
 
-export default function TripItem() {
+export default function TripItem({ image, details }) {
     const classes = useStyles();
-    // const imgUrl= undefined;
-    return(
+    
+    return( 
         <div className={classes.wrapper}>
             <div className={classes.item}>
-                <img alt='img01' src='/images/img01.jpg' />
+                <img alt={image.name} src={image.url} />
                 <div className={classes.details}>
-                    <h4>Nombre</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni a ratione iure suscipit 
-                        ipsam porro non quam pariatur consequatur facere, minus placeat ea molestiae laboriosam possimus, 
-                        cumque reiciendis odio ipsa.
-                    </p>
+                    <h4>{details.name}</h4>
+                    <p>{details.description}</p>
                 </div>
                 <div className={classes.price}>
-                   precio
+                   {details.price}
                 </div>
             </div>
             <div className={classes.bottomBtn}>
