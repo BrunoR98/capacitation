@@ -43,7 +43,7 @@ export default function TripItem({ image, details, button }) {
                     <p>{details.description}</p>
                 </div>
                 <div className={classes.price}>
-                   {details.price}
+                   U$D {details.price}
                 </div>
             </div>
             <div className={classes.bottomBtn}>

@@ -15,7 +15,8 @@ let reservasArray = [];
 function reducer(state, item) {
     switch(item.button.type) {
         case 'promo':
-            console.log(`Promo aplicada para su viaje a ${item.details.name}, recuerde que es INCANCELABLE`);
+            const descuento = discountPromo(item);
+            console.log(`Promo aplicada para su viaje a ${item.details.name}, precio final: U$D ${descuento}. Recuerde que es INCANCELABLE`);
             return [...state, item.details.name];
         case 'reservar':
             console.log(`Reserva realizada, este mail enviado a ${user.email} confirma su reserva para el viaje a ${item.details.name}`);
@@ -29,6 +30,11 @@ function reducer(state, item) {
         default:
             return [...state];
     }
+}
+
+function discountPromo(item) {
+    const promo = item.details.price;
+    return promo - (promo*0.15);
 }
 
 function cancelFunctionality(stateArray, reservasArray){

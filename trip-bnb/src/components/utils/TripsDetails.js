@@ -17,17 +17,23 @@ export const imageUrls = {
 export const details = {
     hawai: {
         name: 'Hawai',
-        description: 'Descripción de Hawai',
-        price: 'USD 2500',
+        description: `Disfrute sus vacaciones en Hawai, sus famosas islas con paisajes escabrosos de riscos,
+                    cascadas y playas con arenas de distintas tonalidades. ¡Aproveche un 15% de descuento si 
+                    utiliza la promoción disponible hasta el 30/7!`,
+        price: 2500,
     },
     brasil: {
         name: 'Brasil',
-        description: 'Descripción de Brasil',
-        price: 'USD 1500',
+        description: `¿Quiere conocer el carnaval mas famoso del mundo, el Cristo Redentor de, ¡38 metros!, o 
+                    simplemente descansar en las maravillosas playas de Copacabana e Ipanema? 
+                    Reserve ahora y visite Brasil.`,
+        price: 1500,
     },
     usa: {
-        name: 'United States',
-        description: 'Descripción de United States',
-        price: 'USD 3000',
+        name: 'Dubai',
+        description: `Dubai es la ciudad conocida por su animada vida nocturna, su arquitectura ultramoderna y
+                    y un paisaje lleno de rascacielos y tecnología. ¿Alguna vez penso que podía conocer una isla
+                    artificial? Visite Dubai, la ciudad de los sueños.`,
+        price: 3000,
     }
 }

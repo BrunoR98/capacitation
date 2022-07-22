@@ -6,13 +6,13 @@ import { user } from '../utils/User';
 
 function App() {
   return (
-    <React.StrictMode>
+    <>
       <UserContext.Provider value={user}>
         <Header />
       </UserContext.Provider>
       <TripMaker />
-    </React.StrictMode>
-  );
+    </>
+    );
 }
 
 export default App;

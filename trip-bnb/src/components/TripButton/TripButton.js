@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
 export default function TripButton({ button, details }) {
     const classes = useStyles();
     const { setTrip } = useContext(TripContext);
-    const item ={
+    const item = {
         button: button,
         details: details,
     }
