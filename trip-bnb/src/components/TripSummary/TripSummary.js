@@ -7,16 +7,16 @@ const useStyles = createUseStyles({
     wrapper: {
         borderTop: '2px solid #bbb',
         display: 'flex',
-        padding: "0 20px 0 20px",
         margin: 'auto',
         width: '96%',
         '& span': {
-            fontSize: '25px'
+            padding: '15px',
+            fontSize: '25px',
         },
     },
     list: {
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         flexWrap: "wrap",
         fontSize: 20,
         maxHeight: 40,
@@ -31,13 +31,13 @@ const useStyles = createUseStyles({
 export default function TripSummary() {
     const classes = useStyles();
     const { trip } = useContext(TripContext);
-    
+    let key = 0;
     return(
         <div className={classes.wrapper}>
             <span>Carro:</span>
             <ul className={classes.list}>
                 {trip.map( name => (
-                    <li key={name}>{name}</li>
+                    <li key={key++}>{name}</li>
                 ))}
             </ul>
         </div>
