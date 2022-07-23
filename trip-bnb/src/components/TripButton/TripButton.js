@@ -31,4 +31,5 @@ export default function TripButton({ button, details }) {
 
 TripButton.propTypes = {
     button: PropTypes.object.isRequired,
+    details: PropTypes.object.isRequired,
 }
