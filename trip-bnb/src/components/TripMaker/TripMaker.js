@@ -1,59 +1,65 @@
 import React, { useReducer } from 'react';
+
+//Components
 import TripBuilder from '../TripBuilder/TripBuilder';
 import TripSummary from '../TripSummary/TripSummary';
-import { user } from '../utils/User';
+
+//Component functionality
+import { cancelFunctionality, discountPromo } from './MakerFunctionality';
 
 //Contexts
 import ItemContext from '../Context/ItemContext/ItemContext';
 import TripContext from '../Context/TripContext/TripContext';
 
+//Utils
 import { details, imageUrls } from '../utils/TripsDetails';
 import { button } from '../utils/Buttons'
+import { user } from '../utils/User';
 
-let reservasArray = [];
+/** 
+ * - Control variables
+ *  StateCopy is used to gather reservations and other elements of the state (promo and buy´s)
+ * to manipulate them in the cancel functionality. (./MakerFunctionality).
+ *  cancelFlag is used to control that only the last element is canceled.
+ */
+let stateCopy = [];
+let cancelFlag = false;
 
 function reducer(state, item) {
     switch(item.button.type) {
         case 'promo':
-            const descuento = discountPromo(item);
-            console.log(`Promo aplicada para su viaje a ${item.details.name}, precio final: U$D ${descuento}. Recuerde que es INCANCELABLE`);
+            cancelFlag = false;
+            if([...state].includes(item.details.name)){
+                alert('Promotion already applied');
+                return [...state];
+            }
+            const discount = discountPromo(item);
+            console.log(`Promotion applied for your trip to ${item.details.name}, final price: U$D ${discount}. Remember, that is not cancelable.`);
+            stateCopy.push(item.details.name);
             return [...state, item.details.name];
-        case 'reservar':
-            console.log(`Reserva realizada, este mail enviado a ${user.email} confirma su reserva para el viaje a ${item.details.name}`);
-            reservasArray.push(item.details.name);
+        case 'reserve':
+            cancelFlag = false;
+            if(stateCopy.includes(item.details.name)){
+                alert(`Your reservation has already been made, confirmation send to ${user.email}.`);
+                return [...state];
+            }
+            console.log(`Reservation made, this email sent to ${user.email} confirm your reservation for the trip to ${item.details.name}.`);
+            stateCopy.push(item.details.name);
             return [...state];
-        case 'comprar':
-            console.log(`Compra realizada, esperamos que disfrute el viaje a ${item.details.name}, este sera nuestro mail de contacto con usted ${user.email}`);
+        case 'buy':
+            cancelFlag = false;
+            console.log(`Purchase made, we hope you enjoy the trip to ${item.details.name}, this will be our contact email with you ${user.email}.`);
+            stateCopy.push(item.details.name);
             return [...state, item.details.name];
-        case 'cancelar':
-            return cancelFunctionality([...state], reservasArray);
+        case 'cancel':
+            if(cancelFlag){
+                return [...state];
+            }
+            cancelFlag = true;
+            return cancelFunctionality([...state], stateCopy);
         default:
             return [...state];
     }
-}
-
-function discountPromo(item) {
-    const promo = item.details.price;
-    return promo - (promo*0.15);
-}
-
-function cancelFunctionality(stateArray, reservasArray){
-    const stateTemp = [...stateArray];
-    const lastIndex = stateTemp.pop();
-
-    const deletedReserve = reservasArray.pop();
-    if(deletedReserve !== undefined){
-        console.log(`Se ha eliminado su reserva a ${deletedReserve}`);
-        return stateArray;
-    } else if(lastIndex === 'Hawai'){
-        alert('No se puede eliminar una promo');
-        return stateArray;
-    } else if(lastIndex === undefined){
-        alert('Nada que cancelar');
-        return stateArray;
-    }
-    console.log('Se ha eliminado su viaje a ' + lastIndex);
-    return stateTemp;
 }
 
 export default function TripMaker() {

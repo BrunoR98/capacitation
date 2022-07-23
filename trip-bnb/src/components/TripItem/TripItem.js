@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createUseStyles } from 'react-jss';
+
+//Component
 import TripButton from '../TripButton/TripButton';
+
+import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -11,8 +14,9 @@ const useStyles = createUseStyles({
         border: '1px solid #999',
         backgroundColor: '#eee',
         padding: '20px',
+        height: '590px',
         '& img': {
-            width: '450px',
+            width: '460px',
             height: '400px',
             border: '1px solid #444',
         }
@@ -22,9 +26,6 @@ const useStyles = createUseStyles({
         float: 'right',
         textAlign: 'right',
         marginTop: '12px',
-    },
-    details: {
-        
     },
     price: {
         textAlign: 'right'
@@ -38,7 +39,7 @@ export default function TripItem({ image, details, button }) {
         <div className={classes.wrapper}>
             <div className={classes.item}>
                 <img alt={image.name} src={image.url} />
-                <div className={classes.details}>
+                <div className='details'>
                     <h4>{details.name}</h4>
                     <p>{details.description}</p>
                 </div>

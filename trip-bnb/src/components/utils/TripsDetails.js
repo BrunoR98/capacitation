@@ -17,23 +17,22 @@ export const imageUrls = {
 export const details = {
     hawai: {
         name: 'Hawai',
-        description: `Disfrute sus vacaciones en Hawai, sus famosas islas con paisajes escabrosos de riscos,
-                    cascadas y playas con arenas de distintas tonalidades. ¡Aproveche un 15% de descuento si 
-                    utiliza la promoción disponible hasta el 30/7!`,
+        description: `Enjoy your vacation in Hawaii, its famous islands with rugged landscapes of cliffs,
+                    waterfalls and beaches with sands of different shades. Take advantage of a 15% discount if
+                    use the promotion available until 7/30.`,
         price: 2500,
     },
     brasil: {
         name: 'Brasil',
-        description: `¿Quiere conocer el carnaval mas famoso del mundo, el Cristo Redentor de, ¡38 metros!, o 
-                    simplemente descansar en las maravillosas playas de Copacabana e Ipanema? 
-                    Reserve ahora y visite Brasil.`,
+        description: `Do you want to know the most famous carnival in the world, the Cristo Redentor of 38 meters!, or
+                    just relax on the wonderful beaches of Copacabana and Ipanema? Book now and visit Brazil.`,
         price: 1500,
     },
     usa: {
         name: 'Dubai',
-        description: `Dubai es la ciudad conocida por su animada vida nocturna, su arquitectura ultramoderna y
-                    y un paisaje lleno de rascacielos y tecnología. ¿Alguna vez penso que podía conocer una isla
-                    artificial? Visite Dubai, la ciudad de los sueños.`,
+        description: `Dubai is the city known for its lively nightlife, its ultra-modern architecture and
+                and a landscape full of skyscrapers and technology. Did you ever think you could meet an artificial island?
+                Visit Dubai, the city of dreams.`,
         price: 3000,
     }
 }

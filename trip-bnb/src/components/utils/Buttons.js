@@ -3,16 +3,16 @@ export const button = {
         name: 'promo',
         type: 'promo'
     },
-    reservarBtn: {
-        name: 'reservar',
-        type: 'reservar'
+    reserveBtn: {
+        name: 'reserve',
+        type: 'reserve'
     },
-    comprarBtn: {
-        name: 'comprar',
-        type: 'comprar'
+    buyBtn: {
+        name: 'buy',
+        type: 'buy'
     },
-    cancelarBtn: {
-        name: 'cancelar',
-        type: 'cancelar'
+    cancelBtn: {
+        name: 'cancel',
+        type: 'cancel'
     }
 }

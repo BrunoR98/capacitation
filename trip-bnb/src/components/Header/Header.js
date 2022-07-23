@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
-import { createUseStyles } from 'react-jss';
+
+//Context
 import UserContext from "../Context/UserContext/UserContext";
+
+import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -35,7 +38,7 @@ export default function Header() {
                 <h2>TripBnB</h2>
             </div>
             <div className={classes.msg}>
-                <span>Bienvenido, {user.name}.</span>
+                <span>Welcome, {user.name}.</span>
             </div>
         </div>
     )

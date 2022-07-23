@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+
+//Components
 import TripItem from '../TripItem/TripItem';
 import TripButton from '../TripButton/TripButton';
 
@@ -21,7 +23,7 @@ const useStyles = createUseStyles({
     },
     topBtn: {
         textAlign: 'right',
-        margin: '0 15px 15px 0',
+        marginBottom: '10px',
     },
 });
 
@@ -33,7 +35,7 @@ export default function TripBuilder() {
         <div className={classes.wrapper}>
             <div className={classes.topBtn}>
                 <TripButton 
-                    button={button.cancelarBtn} 
+                    button={button.cancelBtn} 
                     details={details}
                 />
             </div>
@@ -49,14 +51,14 @@ export default function TripBuilder() {
                     <TripItem 
                         image={imageUrls.img02} 
                         details={details.brasil} 
-                        button={button.reservarBtn}
+                        button={button.reserveBtn}
                     />
                 </div>
                 <div>
                     <TripItem 
                         image={imageUrls.img03} 
                         details={details.usa}
-                        button={button.comprarBtn}
+                        button={button.buyBtn}
                     />
                 </div>
             </div>

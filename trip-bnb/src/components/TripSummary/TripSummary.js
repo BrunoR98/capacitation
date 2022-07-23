@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+
+//Context
 import TripContext from '../Context/TripContext/TripContext';
 
 import { createUseStyles } from 'react-jss';
@@ -34,7 +36,7 @@ export default function TripSummary() {
     let key = 0;
     return(
         <div className={classes.wrapper}>
-            <span>Carro:</span>
+            <span>Your selections:</span>
             <ul className={classes.list}>
                 {trip.map( name => (
                     <li key={key++}>{name}</li>
