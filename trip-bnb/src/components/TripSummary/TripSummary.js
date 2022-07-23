@@ -12,15 +12,15 @@ const useStyles = createUseStyles({
         margin: 'auto',
         width: '96%',
         '& span': {
-            padding: '15px',
-            fontSize: '25px',
+            margin: '22px 10px 0 10px',
+            fontSize: '28px',
         },
     },
     list: {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        fontSize: 20,
+        fontSize: 25,
         maxHeight: 40,
         "& li": {
             width: 130,

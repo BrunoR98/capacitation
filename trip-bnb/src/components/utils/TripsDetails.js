@@ -17,14 +17,14 @@ export const imageUrls = {
 export const details = {
     hawai: {
         name: 'Hawai',
-        description: `Enjoy your vacation in Hawaii, its famous islands with rugged landscapes of cliffs,
+        description: `Enjoy your vacation in Hawai, its famous islands with rugged landscapes of cliffs,
                     waterfalls and beaches with sands of different shades. Take advantage of a 15% discount if
                     use the promotion available until 7/30.`,
         price: 2500,
     },
     brasil: {
         name: 'Brasil',
-        description: `Do you want to know the most famous carnival in the world, the Cristo Redentor of 38 meters!, or
+        description: `Do you want to know the most famous carnival in the world, the Cristo Redentor of 38 meters or
                     just relax on the wonderful beaches of Copacabana and Ipanema? Book now and visit Brazil.`,
         price: 1500,
     },

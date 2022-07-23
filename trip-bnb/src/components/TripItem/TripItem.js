@@ -27,8 +27,16 @@ const useStyles = createUseStyles({
         textAlign: 'right',
         marginTop: '12px',
     },
+    details: {
+        fontSize: '17px',
+        '& span': {
+            fontSize: '30px',
+            fontWeight: '400'
+        }
+    },
     price: {
-        textAlign: 'right'
+        float: 'right',
+        fontSize: '24px',
     },
 });
 
@@ -39,13 +47,13 @@ export default function TripItem({ image, details, button }) {
         <div className={classes.wrapper}>
             <div className={classes.item}>
                 <img alt={image.name} src={image.url} />
-                <div className='details'>
-                    <h4>{details.name}</h4>
+                <div className={classes.details}>
+                    <span>{details.name}</span>
                     <p>{details.description}</p>
                 </div>
-                <div className={classes.price}>
+                <span className={classes.price}>
                    U$D {details.price}
-                </div>
+                </span>
             </div>
             <div className={classes.bottomBtn}>
                 <TripButton button={button} details={details}/>
