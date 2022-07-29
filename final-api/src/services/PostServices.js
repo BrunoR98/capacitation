@@ -5,6 +5,7 @@ export async function getPosts() {
             'Content-Type': 'application/json'
         }
     }).then(data => data.json())
+    .then(response => {return response})
 }
 
 export async function setPost(post) {

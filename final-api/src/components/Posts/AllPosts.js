@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 //Components
@@ -13,22 +13,25 @@ function reducer(state, item) {
 
 export default function AllPosts() {
     const [allPosts, setAllPosts] = useReducer(reducer, []);
-    const [newPost, setNewPost] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const response = getPosts();
+        response.then(data => {
+            for(let post of data) {
+                setAllPosts(post);
+            }
+            setLoading(false);
+        });
+    },[])
     
-    const savePosts = async (e) => {
-        e.preventDefault();
-        const response = await getPosts().then(data => {return data});
-        for(let post of response) {
-            setAllPosts(post);
-        }
-        setNewPost(true);
+    if(loading) {
+        return <h1>Loading all posts...</h1>
     }
 
     return(
         <div className='all-posts-wrapper'>
-            <h1>All posts</h1>
-            {!newPost && <button onClick={savePosts}>Show Posts</button>}
-            {newPost && <Link to='/CreatePost'><button >Create new post</button></Link>}
+            {<Link to='/CreatePost'><button >Create new post</button></Link>}
             <ul>
             {allPosts.map( post => (
                 <li key={post.id}>
