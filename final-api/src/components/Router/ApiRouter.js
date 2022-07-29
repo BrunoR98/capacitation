@@ -11,23 +11,26 @@ import Register     from '../Register/Register';
 import AllPosts     from '../Posts/AllPosts';
 import CreatePost   from '../Posts/CreatePost';
 import PageNotFound from '../Errors/PageNotFound';
+import NotLogged from '../Errors/NotLogged';
 
 export default function ApiRouter() {
     const [userLogin, setUserLogin] = useState('Unknown user');
+    const [isLogged, setIsLogged] = useState(false);
 
-    const setDefaultUser = () => {
+    const logOut = () => {
         setUserLogin('Unknown user');
+        setIsLogged(false);
     }
 
     return(
             <Router>
-                <UserContext.Provider value={{ userLogin, setUserLogin, setDefaultUser }}>
+                <UserContext.Provider value={{ userLogin, setUserLogin, setIsLogged ,logOut }}>
                     <Routes>
                         <Route exact path='/' element={<Home />}/>
                         <Route exact path='/Login' element={<Login />}/>
                         <Route exact path='/Register' element={<Register />}/>
-                        <Route exact path='/AllPosts' element={<AllPosts />}/>
-                        <Route exact path='/CreatePost' element={<CreatePost />}/>
+                        <Route exact path='/AllPosts' element={isLogged ? <AllPosts /> : <NotLogged />}/>
+                        <Route exact path='/CreatePost' element={isLogged ? <CreatePost /> : <NotLogged />}/>
                         <Route path='*' element={<PageNotFound />}/>
                     </Routes>
                 </UserContext.Provider>

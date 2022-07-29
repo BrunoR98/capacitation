@@ -1,6 +1,12 @@
 import React, { useEffect, useReducer, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+//Styles
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button } from '@mui/material';
+
 //Components
 import Post from './Post';
 
@@ -35,11 +41,25 @@ export default function AllPosts() {
 
     return(
         <div className='all-posts-wrapper'>
-            {<Link to='/CreatePost'><button>Create new post</button></Link>}
-            {<Link to='/'><button onClick={() => {userContext.setDefaultUser()}}>Log Out</button></Link>}
             <div>
-                <h3>{userContext.userLogin}</h3>
+                <h3><AccountCircleIcon sx={{fontSize: '25px'}}/> {userContext.userLogin}</h3>
             </div>
+            <Link to='/CreatePost' style={{ textDecoration: 'none', marginRight: '5px' }}>
+                    <Button 
+                        variant="contained" 
+                        startIcon={<AddCircleOutlineIcon/>}>
+                        New post
+                    </Button>
+            </Link>
+            <Link to='/' style={{ textDecoration: 'none' }}> 
+                    <Button 
+                        variant="contained" 
+                        color='warning' 
+                        onClick={() => {userContext.logOut()}} 
+                        startIcon={<LogoutIcon/>}>
+                        Log Out
+                    </Button>
+            </Link>
             <ul>
             {allPosts.map( post => (
                 <li key={post.id}>

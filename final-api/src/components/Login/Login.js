@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
 //Styles
+import './Login.css'
 import TextField from '@mui/material/TextField'
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
@@ -34,6 +35,7 @@ export default function Login() {
             loginValidator(userDB, user.password);
             userContext.setUserLogin(userDB[0].username);
             alert(`Login successful, welcome ${userDB[0].username}.`);
+            userContext.setIsLogged(true);
             setUserFound(true);
         } catch (e) {
             alert(e.message);
@@ -47,7 +49,7 @@ export default function Login() {
         <div className='login-wrapper'>
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
-                <fieldset>
+                <fieldset style={{border: 'none'}}>
                     <label htmlFor='email'>
                         <TextField
                             helperText='Please enter your email'
@@ -72,14 +74,16 @@ export default function Login() {
                         />
                     </label>
                 </fieldset>
-                <IconButton aria-label="login" color="success" type='submit'>
-                    <Fingerprint fontSize='large'/>Log In
-                </IconButton>
-                <Link to='/'>
-                    <IconButton aria-label="back" type='button'>
-                        <ReplyAllOutlinedIcon fontSize='large'/>
+                <div className='login-btn'>
+                    <IconButton aria-label="login" color="success" type='submit'>
+                        <Fingerprint fontSize='large'/>Log In
                     </IconButton>
-                </Link>
+                    <Link to='/'>
+                        <IconButton aria-label="back" type='button'>
+                            <ReplyAllOutlinedIcon fontSize='large'/>
+                        </IconButton>
+                    </Link>
+                </div>
             </form>
             {userFound && <Navigate to='/AllPosts' replace/>}
         </div>

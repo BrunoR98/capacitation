@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
 //Styles
+import './Register.css'
 import TextField from '@mui/material/TextField'
 import IconButton from '@mui/material/IconButton';
-import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
+import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 
 //Services
 import { setUser, getUsers } from '../../services/UserServices';
@@ -48,7 +49,7 @@ export default function Register() {
     return( 
         <div className='register-wrapper'>
             <form onSubmit={handleSubmit}>
-                <fieldset>
+                <fieldset style={{border: 'none', borderBottom: '1px solid black'}}>
                     <label htmlFor='username'>
                         <p>Username</p>
                         <TextField
@@ -87,14 +88,16 @@ export default function Register() {
                         />
                     </label>
                 </fieldset>
-                <IconButton aria-label="login" color="success" type='submit'>
-                    <HowToRegOutlinedIcon fontSize='large'/>Register
-                </IconButton>
-                <Link to='/'>
-                    <IconButton aria-label="back" type='button'>
-                        <ReplyAllOutlinedIcon fontSize='large'/>
+                <div className='register-btn'>
+                    <IconButton aria-label="login" color="success" type='submit'>
+                        <HowToRegOutlinedIcon fontSize='large'/>Register
                     </IconButton>
-                </Link>
+                    <Link to='/'>
+                        <IconButton aria-label="back" type='button'>
+                            <ReplyAllOutlinedIcon fontSize='large'/>
+                        </IconButton>
+                    </Link>
+                </div>
             </form>
             {redirect && <Navigate to='/login' replace/>}
             {errorRedirect && <Navigate to='/' replace/>}
