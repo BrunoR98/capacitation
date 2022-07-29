@@ -4,7 +4,7 @@
 
 ## Trabajo Práctico N°6
 * Acceder a crear y ver historias, mediante registro y login previo.
-* Se explican algunas funcionalidades en la sección de [Comentarios](comments).
+* Se explican algunas funcionalidades en la sección de [Comentarios](comentarios).
 
 ## Setup
 Para iniciar el proyecto:
