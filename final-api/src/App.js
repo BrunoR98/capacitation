@@ -1,10 +1,10 @@
 import './App.css';
 
-import Routers from './components/Router/Routers';
+import ApiRouter from './components/Router/ApiRouter';
 
 function App() {
   return (
-        <Routers />
+        <ApiRouter />
   );
 }
 

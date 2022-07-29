@@ -6,6 +6,15 @@ export async function getUsers() {
         }
     }).then(data => data.json())
 }
+
+export async function getUser(email) {
+    return await fetch(`http://localhost:3333/users?email=${email}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(data => data.json())
+}
  
 export async function setUser(user) {
     return fetch('http://localhost:3333/users', {

@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 //Services
-import { setUser } from '../../services/UserServices';
+import { setUser, getUsers } from '../../services/UserServices';
+
+//Validator
+import RegisterValidator from './RegisterValidator';
 
 export default function Register() {
-    const [redirect, setRedirect] = useState(false);
+    const [redirect, setRedirect]           = useState(false);
+    const [errorRedirect, setErrorRedirect] = useState(false);
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
+    const [username, setUsername]   = useState('');
+    const [email, setEmail]         = useState('');
+    const [password, setPassword]   = useState('');
 
     const user = {
         username,
@@ -20,8 +23,17 @@ export default function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await setUser(user);
-        setRedirect(true);
+        const data = await getUsers();
+        try{
+            RegisterValidator(user, data);
+            await setUser(user);
+            setRedirect(true);
+            alert('Registration successful, please LogIn');
+        } catch (e) {
+            alert(e.message);
+            setErrorRedirect(true);
+            return;
+        }
         setUsername('');
         setEmail('');
         setPassword('');
@@ -63,8 +75,10 @@ export default function Register() {
                     </label>
                 </fieldset>
                 <button type='submit'>Register</button>
+                <button type='button'><Link to='/'>Back</Link></button>
             </form>
             {redirect && <Navigate to='/login' replace/>}
+            {errorRedirect && <Navigate to='/' replace/>}
         </div>
     )
 }

@@ -12,8 +12,8 @@ function reducer(state, item) {
 }
 
 export default function AllPosts() {
-    const [allPosts, setAllPosts] = useReducer(reducer, []);
-    const [loading, setLoading] = useState(true);
+    const [allPosts, setAllPosts]   = useReducer(reducer, []);
+    const [loading, setLoading]     = useState(true);
 
     useEffect(() => {
         const response = getPosts();
@@ -31,7 +31,8 @@ export default function AllPosts() {
 
     return(
         <div className='all-posts-wrapper'>
-            {<Link to='/CreatePost'><button >Create new post</button></Link>}
+            {<Link to='/CreatePost'><button>Create new post</button></Link>}
+            {<Link to='/'><button>Log Out</button></Link>}
             <ul>
             {allPosts.map( post => (
                 <li key={post.id}>

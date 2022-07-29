@@ -5,9 +5,9 @@ import { Navigate } from 'react-router-dom';
 import { setPost } from '../../services/PostServices';
 
 export default function CreatePost () {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [redirect, setRedirect] = useState(false);
+    const [title, setTitle]         = useState('');
+    const [content, setContent]     = useState('');
+    const [redirect, setRedirect]   = useState(false);
 
     const post = {
         title, 

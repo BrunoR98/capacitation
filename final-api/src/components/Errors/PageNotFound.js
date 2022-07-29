@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
-export default function NotFound() {
+export default function PageNotFound() {
     const [count, setCount] = useState(5);
 
     useEffect(() => {

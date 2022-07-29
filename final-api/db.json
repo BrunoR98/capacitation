@@ -21,7 +21,7 @@
     {
       "id": 4,
       "username": "Sabrina",
-      "email": "sabrinaboccardo@gmail.com",
+      "email": "sabrinaboca@gmail.com",
       "password": "password"
     }
   ],
@@ -37,14 +37,9 @@
       "id": 2
     },
     {
-      "title": "otro mas, seria el 3ero",
-      "content": "para colmoi no se si anda",
+      "title": "Terminando el Trabajo Practico",
+      "content": "Yy toy contento la verdad",
       "id": 3
-    },
-    {
-      "title": "asdsa",
-      "content": "asdqwe",
-      "id": 4
     }
   ]
 }

@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Navigate, Link } from 'react-router-dom';
 
 //Services
-import { getUsers} from "../../services/UserServices";
+import { getUser, getUsers} from '../../services/UserServices';
 
 //Validator
-import { loginValidator } from "./LoginValidator";
-
+import { loginValidator } from './LoginValidator';
 
 export default function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail]         = useState('');
+    const [password, setPassword]   = useState('');
     const [userFound, setUserFound] = useState(false);
 
     const user = {
@@ -21,12 +20,15 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = await getUsers();
-        const found = loginValidator(user, data);
-        if (found){
-            console.log('user found')
+        try {
+            loginValidator(user, data);
+            const userFound = await getUser(user.email);
+            const name = await userFound[0].username;
+            alert(`Login successful, welcome ${name}.`);
             setUserFound(true);
-        } else {
-            console.log('user not found')
+        } catch (e) {
+            alert(e.message);
+            return;
         }
         setEmail('');
         setPassword('');
@@ -59,6 +61,7 @@ export default function Login() {
                     </label>
                 </fieldset>
                 <button type='submit'>Log In</button>
+                <button type='button'><Link to='/'>Back</Link></button>
             </form>
             {userFound && <Navigate to='/AllPosts' replace/>}
         </div>

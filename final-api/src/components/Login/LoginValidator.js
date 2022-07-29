@@ -1,9 +1,9 @@
 export function loginValidator(user, data) {
     for(let element of data){
-        if(element.email === user.email){
+        if(element.email === user.email && element.password === user.password){
             return true;
+        } else {
+            throw new Error('Invalid credentials.');
         }
     }
-    return false;
-
 }

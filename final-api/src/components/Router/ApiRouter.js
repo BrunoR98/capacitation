@@ -5,15 +5,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 
 //Components
-import Login from '../Login/Login';
-import Home from '../Home/Home';
-import Register from '../Register/Register';
-import AllPosts from '../Posts/AllPosts';
-import CreatePost from '../Posts/CreatePost';
-import NotFound from '../Errors/NotFound';
+import Login        from '../Login/Login';
+import Home         from '../Home/Home';
+import Register     from '../Register/Register';
+import AllPosts     from '../Posts/AllPosts';
+import CreatePost   from '../Posts/CreatePost';
+import PageNotFound from '../Errors/PageNotFound';
 
-export default function Routers() {
-    const [username, setUsername] = useState('Unknow User');
+export default function ApiRouter() {
+    const [username, setUsername] = useState('Unknown user');
 
     return(
             <Router>
@@ -24,7 +24,7 @@ export default function Routers() {
                         <Route exact path='/Register' element={<Register />}/>
                         <Route exact path='/AllPosts' element={<AllPosts />}/>
                         <Route exact path='/CreatePost' element={<CreatePost />}/>
-                        <Route path='*' element={<NotFound />}/>
+                        <Route path='*' element={<PageNotFound />}/>
                     </Routes>
                 </UserContext.Provider>
             </Router>
