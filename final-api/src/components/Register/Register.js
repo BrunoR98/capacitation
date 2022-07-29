@@ -51,7 +51,7 @@ export default function Register() {
             <form onSubmit={handleSubmit}>
                 <fieldset style={{border: 'none', borderBottom: '1px solid black'}}>
                     <label htmlFor='username'>
-                        <p>Username</p>
+                        <p className='register-label'>Username</p>
                         <TextField
                             helperText='Please enter your username'
                             type='text'
@@ -63,7 +63,7 @@ export default function Register() {
                         />
                     </label>
                     <label htmlFor='email'>
-                        <p>Email</p>
+                        <p className='register-label'>Email</p>
                         <TextField
                             helperText='Please enter your email'
                             type='email'
@@ -75,7 +75,7 @@ export default function Register() {
                         />
                     </label>
                     <label htmlFor='password'>
-                        <p>Password</p>
+                        <p className='register-label'>Password</p>
                         <TextField
                             helperText='Please enter your password'
                             type='password'
