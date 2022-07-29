@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
 //Services
 import { setPost } from '../../services/PostServices';
 
+//Context
+import UserContext from '../../contexts/UserContext';
+
 export default function CreatePost () {
+    const userContext = useContext(UserContext);
+
     const [title, setTitle]         = useState('');
     const [content, setContent]     = useState('');
     const [redirect, setRedirect]   = useState(false);
@@ -24,6 +29,9 @@ export default function CreatePost () {
 
     return(
         <div className='create-post-wrapper'>
+            <div>
+                <h3> {userContext.userLogin}</h3>
+            </div>
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <label htmlFor='title'>

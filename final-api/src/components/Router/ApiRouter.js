@@ -13,11 +13,15 @@ import CreatePost   from '../Posts/CreatePost';
 import PageNotFound from '../Errors/PageNotFound';
 
 export default function ApiRouter() {
-    const [username, setUsername] = useState('Unknown user');
+    const [userLogin, setUserLogin] = useState('Unknown user');
+
+    const setDefaultUser = () => {
+        setUserLogin('Unknown user');
+    }
 
     return(
             <Router>
-                <UserContext.Provider value={{ username, setUsername }}>
+                <UserContext.Provider value={{ userLogin, setUserLogin, setDefaultUser }}>
                     <Routes>
                         <Route exact path='/' element={<Home />}/>
                         <Route exact path='/Login' element={<Login />}/>

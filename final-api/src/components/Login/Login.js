@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
 //Services
@@ -7,10 +7,14 @@ import { getUser, getUsers} from '../../services/UserServices';
 //Validator
 import { loginValidator } from './LoginValidator';
 
+//Context
+import UserContext from '../../contexts/UserContext';
+
 export default function Login() {
     const [email, setEmail]         = useState('');
     const [password, setPassword]   = useState('');
     const [userFound, setUserFound] = useState(false);
+    const userContext = useContext(UserContext);
 
     const user = {
         email,
@@ -19,12 +23,11 @@ export default function Login() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await getUsers();
+        const userDB = await getUser(user.email);
         try {
-            loginValidator(user, data);
-            const userFound = await getUser(user.email);
-            const name = await userFound[0].username;
-            alert(`Login successful, welcome ${name}.`);
+            loginValidator(userDB, user.password);
+            userContext.setUserLogin(userDB[0].username);
+            alert(`Login successful, welcome ${userDB[0].username}.`);
             setUserFound(true);
         } catch (e) {
             alert(e.message);

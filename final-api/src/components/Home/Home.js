@@ -10,7 +10,7 @@ export default function Home () {
     return(
         <div className='home-wrapper'>
             <div className='home-title'>
-                <h1>Welcome, {user.username}!</h1>
+                <h1>Welcome, {user.userLogin}!</h1>
             </div>
             <div className='home-details'>
                 <h3>For full access to the posts, please LogIn.</h3>
