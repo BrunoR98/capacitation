@@ -24,5 +24,22 @@
       "email": "sabrinaboccardo@gmail.com",
       "password": "password"
     }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Primer posteo",
+      "content": "Se trata de mi primer posteo"
+    },
+    {
+      "title": "otro post mas",
+      "content": "otro mas",
+      "id": 2
+    },
+    {
+      "title": "otro mas, seria el 3ero",
+      "content": "para colmoi no se si anda",
+      "id": 3
+    }
   ]
 }
