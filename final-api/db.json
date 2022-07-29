@@ -23,6 +23,12 @@
       "username": "Sabrina",
       "email": "sabrinaboca@gmail.com",
       "password": "password"
+    },
+    {
+      "username": "Brunor",
+      "email": "bruno@gmail.com",
+      "password": "pass",
+      "id": 5
     }
   ],
   "posts": [

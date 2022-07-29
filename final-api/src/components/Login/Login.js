@@ -1,8 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
+//Styles
+import TextField from '@mui/material/TextField'
+import IconButton from '@mui/material/IconButton';
+import Fingerprint from '@mui/icons-material/Fingerprint';
+import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
+
 //Services
-import { getUser, getUsers} from '../../services/UserServices';
+import { getUser} from '../../services/UserServices';
 
 //Validator
 import { loginValidator } from './LoginValidator';
@@ -43,28 +49,37 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <label htmlFor='email'>
-                        <p>Email</p>
-                        <input 
-                            type='email'
-                            placeholder='Email'
+                        <TextField
+                            helperText='Please enter your email'
+                            label='Email'
+                            variant='filled'
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             required
                         />
                     </label>
+                    <br />
                     <label htmlFor='password'>
-                        <p>Password</p>
-                        <input 
+                        <TextField
+                            helperText='Please enter your password'
+                            label='Password'
+                            variant='filled' 
+                            color='warning'
                             type='password'
-                            placeholder='Password'
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
                         />
                     </label>
                 </fieldset>
-                <button type='submit'>Log In</button>
-                <button type='button'><Link to='/'>Back</Link></button>
+                <IconButton aria-label="login" color="success" type='submit'>
+                    <Fingerprint fontSize='large'/>Log In
+                </IconButton>
+                <Link to='/'>
+                    <IconButton aria-label="back" type='button'>
+                        <ReplyAllOutlinedIcon fontSize='large'/>
+                    </IconButton>
+                </Link>
             </form>
             {userFound && <Navigate to='/AllPosts' replace/>}
         </div>

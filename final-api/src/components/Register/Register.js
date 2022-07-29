@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
+//Styles
+import TextField from '@mui/material/TextField'
+import IconButton from '@mui/material/IconButton';
+import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
+import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
+
 //Services
 import { setUser, getUsers } from '../../services/UserServices';
 
@@ -45,9 +51,11 @@ export default function Register() {
                 <fieldset>
                     <label htmlFor='username'>
                         <p>Username</p>
-                        <input 
+                        <TextField
+                            helperText='Please enter your username'
                             type='text'
-                            placeholder='Username'
+                            label='Username'
+                            variant='filled'
                             onChange={(e) => setUsername(e.target.value)}
                             value={username}
                             required
@@ -55,9 +63,11 @@ export default function Register() {
                     </label>
                     <label htmlFor='email'>
                         <p>Email</p>
-                        <input 
+                        <TextField
+                            helperText='Please enter your email'
                             type='email'
-                            placeholder='Email'
+                            label='Email'
+                            variant='filled'
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             required
@@ -65,17 +75,26 @@ export default function Register() {
                     </label>
                     <label htmlFor='password'>
                         <p>Password</p>
-                        <input 
+                        <TextField
+                            helperText='Please enter your password'
                             type='password'
-                            placeholder='Password'
+                            label='Password'
+                            color='warning'
+                            variant='filled'
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
                         />
                     </label>
                 </fieldset>
-                <button type='submit'>Register</button>
-                <button type='button'><Link to='/'>Back</Link></button>
+                <IconButton aria-label="login" color="success" type='submit'>
+                    <HowToRegOutlinedIcon fontSize='large'/>Register
+                </IconButton>
+                <Link to='/'>
+                    <IconButton aria-label="back" type='button'>
+                        <ReplyAllOutlinedIcon fontSize='large'/>
+                    </IconButton>
+                </Link>
             </form>
             {redirect && <Navigate to='/login' replace/>}
             {errorRedirect && <Navigate to='/' replace/>}
