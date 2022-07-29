@@ -28,7 +28,7 @@ export default function Register() {
             RegisterValidator(user, data);
             await setUser(user);
             setRedirect(true);
-            alert('Registration successful, please LogIn');
+            alert('Registration successful, please LogIn.');
         } catch (e) {
             alert(e.message);
             setErrorRedirect(true);

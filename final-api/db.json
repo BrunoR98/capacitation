@@ -23,6 +23,12 @@
       "username": "Sabrina",
       "email": "sabrinaboca@gmail.com",
       "password": "password"
+    },
+    {
+      "username": "brunonor98",
+      "email": "brunor98@gmail.com",
+      "password": "password",
+      "id": 5
     }
   ],
   "posts": [
@@ -40,6 +46,11 @@
       "title": "Terminando el Trabajo Practico",
       "content": "Yy toy contento la verdad",
       "id": 3
+    },
+    {
+      "title": "Ultimo del dia",
+      "content": "Por irme a dormir",
+      "id": 4
     }
   ]
 }
