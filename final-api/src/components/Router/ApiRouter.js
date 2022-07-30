@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //Context
 import UserContext from '../../contexts/UserContext';
 
+//Alert
+import { logOutAlert } from '../Alerts/SuccessAlerts';
+
 //Components
 import Login        from '../Login/Login';
 import Home         from '../Home/Home';
@@ -18,13 +21,14 @@ export default function ApiRouter() {
     const [isLogged, setIsLogged] = useState(false);
 
     const logOut = () => {
+        logOutAlert(userLogin)
         setUserLogin('Unknown user');
         setIsLogged(false);
     }
 
     return(
             <Router>
-                <UserContext.Provider value={{ userLogin, setUserLogin, setIsLogged ,logOut }}>
+                <UserContext.Provider value={{ userLogin, setUserLogin, setIsLogged, logOut }}>
                     <Routes>
                         <Route exact path='/' element={<Home />}/>
                         <Route exact path='/Login' element={<Login />}/>

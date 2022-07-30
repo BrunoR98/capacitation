@@ -20,13 +20,13 @@ export default function Home () {
             <div className='home-details'>
                 <h3>For full access to the posts, please LogIn.</h3>
                 <Link to='/Login' style={{ textDecoration: 'none' }}> 
-                    <Button variant="contained" startIcon={<LoginIcon />}>
+                    <Button variant='contained' startIcon={<LoginIcon />}>
                         Log In
                     </Button>
                 </Link>
                 <h3>If you don´t have an account, you can register now for free!</h3>
                 <Link to='/Register' style={{ textDecoration: 'none' }}> 
-                    <Button variant="contained" startIcon={<AppRegistrationIcon />}>
+                    <Button variant='contained' startIcon={<AppRegistrationIcon />}>
                         Register
                     </Button>
                 </Link>
