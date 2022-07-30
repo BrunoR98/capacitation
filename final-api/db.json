@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "username": "Bruno Renaudo",
+      "email": "brunorenaudo@gmail.com",
+      "password": "password",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "title": "Demostration post",
+      "content": "An small post to show you the structure of this web site.",
+      "id": 1
+    }
+  ]
+}
