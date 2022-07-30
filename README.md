@@ -4,7 +4,7 @@
 
 ## Trabajo Práctico N°6
 * Acceder a crear y ver historias, mediante registro y login previo.
-* Se explican algunas funcionalidades en la sección de [Comentarios](https://github.com/BrunoR98/capacitation/tree/master#comentarios).
+* Se explican algunas funcionalidades en la sección de [Comentarios](https://github.com/BrunoR98/capacitation/tree/tp6#comentarios).
 
 ## Setup
 Para iniciar el proyecto:
