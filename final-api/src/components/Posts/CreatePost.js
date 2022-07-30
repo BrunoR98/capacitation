@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
 //Styles
+import './Posts.css';
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
@@ -53,7 +54,7 @@ export default function CreatePost () {
                         />
                     </label>
                     <label htmlFor='content'>
-                        <p>Content</p>
+                        <p className='create-post-content-header'>Content</p>
                         <TextField
                             type='text'
                             onChange={(e) => setContent(e.target.value)}

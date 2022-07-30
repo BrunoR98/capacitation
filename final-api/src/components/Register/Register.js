@@ -49,11 +49,10 @@ export default function Register() {
     return( 
         <div className='register-wrapper'>
             <form onSubmit={handleSubmit}>
-                <fieldset style={{border: 'none', borderBottom: '1px solid black'}}>
+                <fieldset className='register-fieldset' style={{border: 'none', borderBottom: '1px solid black', paddingBottom: '18px'}}>
                     <label htmlFor='username'>
                         <p className='register-label'>Username</p>
                         <TextField
-                            helperText='Please enter your username'
                             type='text'
                             label='Username'
                             variant='filled'
@@ -65,7 +64,6 @@ export default function Register() {
                     <label htmlFor='email'>
                         <p className='register-label'>Email</p>
                         <TextField
-                            helperText='Please enter your email'
                             type='email'
                             label='Email'
                             variant='filled'
@@ -77,7 +75,6 @@ export default function Register() {
                     <label htmlFor='password'>
                         <p className='register-label'>Password</p>
                         <TextField
-                            helperText='Please enter your password'
                             type='password'
                             label='Password'
                             color='warning'

@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 //Styles
+import './Posts.css';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -38,12 +39,11 @@ export default function AllPosts() {
     if(loading) {
         return <h1>Loading all posts...</h1>
     }
-
+    
     return(
         <div className='all-posts-wrapper'>
-            <div>
+            <div className='all-post-header'>
                 <h3><AccountCircleIcon sx={{fontSize: '25px'}}/> {userContext.userLogin}</h3>
-            </div>
             <Link to='/CreatePost' style={{ textDecoration: 'none', marginRight: '5px' }}>
                     <Button 
                         variant="contained" 
@@ -60,8 +60,9 @@ export default function AllPosts() {
                         Log Out
                     </Button>
             </Link>
+            </div>
             <ul>
-            {allPosts.map( post => (
+            {allPosts.map(post => (
                 <li key={post.id}>
                     <Post
                         id={post.id} 
