@@ -13,6 +13,9 @@ import Input from '@mui/material/Input';
 //Services
 import { setPost } from '../../services/PostServices';
 
+//Alert
+import { postCreatedAlert } from '../Alerts/SuccessAlerts';
+
 //Context
 import UserContext from '../../contexts/UserContext';
 
@@ -63,16 +66,16 @@ export default function CreatePost () {
                             multiline
                             rows={5}
                             sx={{width: '400px'}}
-                            placeholder="Content of your post.."
-                            variant="filled"
+                            placeholder='Content of your post..'
+                            variant='filled'
                         />
                     </label>
                     <div>
-                    <IconButton aria-label="add-post" type='submit'>
-                        <AddBoxIcon sx={{ fontSize: '45px', color: '#5CD752'}}/>
+                    <IconButton aria-label='add-post' type='submit' onClick={() => postCreatedAlert()}>
+                        <AddBoxIcon sx={{ fontSize: '45px', color: '#5CD752' }}/>
                     </IconButton>
                     <Link to='/AllPosts'>
-                        <IconButton aria-label="back" type='button'>
+                        <IconButton aria-label='back' type='button'>
                             <ReplyAllOutlinedIcon fontSize='large'/>
                         </IconButton>
                     </Link>

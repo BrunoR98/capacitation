@@ -34,7 +34,7 @@ export default function AllPosts() {
             }
             setLoading(false);
         });
-    },[])
+    }, [])
     
     if(loading) {
         return <h1>Loading all posts...</h1>
@@ -45,20 +45,20 @@ export default function AllPosts() {
             <div className='all-post-header'>
                 <h3><AccountCircleIcon sx={{fontSize: '25px'}}/> {userContext.userLogin}</h3>
             <Link to='/CreatePost' style={{ textDecoration: 'none', marginRight: '5px' }}>
-                    <Button 
-                        variant="contained" 
-                        startIcon={<AddCircleOutlineIcon/>}>
-                        New post
-                    </Button>
+                <Button 
+                    variant='contained' 
+                    startIcon={<AddCircleOutlineIcon/>}>
+                    New post
+                </Button>
             </Link>
-            <Link to='/' style={{ textDecoration: 'none' }}> 
-                    <Button 
-                        variant="contained" 
-                        color='warning' 
-                        onClick={() => {userContext.logOut()}} 
-                        startIcon={<LogoutIcon/>}>
-                        Log Out
-                    </Button>
+            <Link to='/' style={{textDecoration: 'none'}}> 
+                <Button 
+                    variant='contained' 
+                    color='warning' 
+                    onClick={() => {userContext.logOut()}} 
+                    startIcon={<LogoutIcon/>}>
+                    Log Out
+                </Button>
             </Link>
             </div>
             <ul>

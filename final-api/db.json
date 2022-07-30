@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "username": "BrunoR98",
+      "username": "Bruno Renaudo",
       "email": "brunorenaudo@gmail.com",
       "password": "password",
       "id": 1
@@ -9,24 +9,9 @@
   ],
   "posts": [
     {
-      "title": "Primer diario",
-      "content": "Querido diario, aca escribiendo algo para rellenar. Tambien quiero ver como se ve cuando escribo mucho. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quam, eum nihil vel iusto cum impedit ipsam hic minima aspernatur ex est corporis, iure fugiat omnis a atque molestiae doloribus!\n",
+      "title": "Demostration post",
+      "content": "An small post to show you the structure of this web site.",
       "id": 1
-    },
-    {
-      "title": "Otro post secundario",
-      "content": "lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dignissimos error harum iure commodi eum assumenda vel ducimus est facere earum inventore sunt doloremque excepturi mollitia, dolorem  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dignissimos error harum iure commodi eum assumenda vel ducimus est facere earum inventore sunt doloremque excepturi mollitia, dolorem consequuntur eveniet totam?consequuntur eveniet totam?",
-      "id": 2
-    },
-    {
-      "title": "Ultimo title",
-      "content": "Solo faltarian modificar las alertas",
-      "id": 3
-    },
-    {
-      "title": "Otro mas para probar",
-      "content": "Poca escritura",
-      "id": 4
     }
   ]
 }

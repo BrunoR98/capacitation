@@ -2,11 +2,15 @@ import React, { useState, useContext } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 
 //Styles
-import './Login.css'
+import './Login.css';
 import TextField from '@mui/material/TextField'
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
+
+//Alerts
+import { successLoginAlert } from '../Alerts/SuccessAlerts';
+import { errorLoginAlert } from '../Alerts/ErrorAlerts';
 
 //Services
 import { getUser} from '../../services/UserServices';
@@ -34,11 +38,11 @@ export default function Login() {
         try {
             loginValidator(userDB, user.password);
             userContext.setUserLogin(userDB[0].username);
-            alert(`Login successful, welcome ${userDB[0].username}.`);
+            successLoginAlert(userDB[0].username);
             userContext.setIsLogged(true);
             setUserFound(true);
         } catch (e) {
-            alert(e.message);
+            errorLoginAlert(e.message);
             return;
         }
         setEmail('');
@@ -75,11 +79,11 @@ export default function Login() {
                     </label>
                 </fieldset>
                 <div className='login-btn'>
-                    <IconButton aria-label="login" color="success" type='submit'>
+                    <IconButton aria-label='login' color='success' type='submit'>
                         <Fingerprint fontSize='large'/>Log In
                     </IconButton>
                     <Link to='/'>
-                        <IconButton aria-label="back" type='button'>
+                        <IconButton aria-label='back' type='button'>
                             <ReplyAllOutlinedIcon fontSize='large'/>
                         </IconButton>
                     </Link>

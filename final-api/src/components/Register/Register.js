@@ -8,6 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import ReplyAllOutlinedIcon from '@mui/icons-material/ReplyAllOutlined';
 import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 
+//Alerts
+import { successRegisterAlert } from '../Alerts/SuccessAlerts';
+import { errorRegisterAlert } from '../Alerts/ErrorAlerts';
+
 //Services
 import { setUser, getUsers } from '../../services/UserServices';
 
@@ -35,9 +39,9 @@ export default function Register() {
             RegisterValidator(user, data);
             await setUser(user);
             setRedirect(true);
-            alert('Registration successful, please LogIn.');
+            successRegisterAlert();
         } catch (e) {
-            alert(e.message);
+            errorRegisterAlert(e.message);
             setErrorRedirect(true);
             return;
         }
@@ -86,11 +90,11 @@ export default function Register() {
                     </label>
                 </fieldset>
                 <div className='register-btn'>
-                    <IconButton aria-label="login" color="success" type='submit'>
+                    <IconButton aria-label='login' color='success' type='submit'>
                         <HowToRegOutlinedIcon fontSize='large'/>Register
                     </IconButton>
                     <Link to='/'>
-                        <IconButton aria-label="back" type='button'>
+                        <IconButton aria-label='back' type='button'>
                             <ReplyAllOutlinedIcon fontSize='large'/>
                         </IconButton>
                     </Link>
