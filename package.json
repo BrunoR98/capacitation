@@ -1,7 +1,7 @@
 {
   "name": "final-api",
   "version": "0.1.0",
-  "homepage": "https://brunor98.github.io",
+  "homepage": "https://brunor98.github.io/capacitation",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
