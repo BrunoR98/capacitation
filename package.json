@@ -1,7 +1,7 @@
 {
   "name": "final-api",
   "version": "0.1.0",
-  "homepage": "https://brunor98.github.io/capacitation",
+  "homepage": "https://brunor98.github.io",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -24,6 +24,7 @@
     "api": "json-server -w db.json -p 3333 -d 1000",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -b tp6 -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
