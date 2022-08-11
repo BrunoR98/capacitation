@@ -24,7 +24,8 @@ export class DashboardComponent implements OnInit {
 
   outOfInProgress(course: Course): void {
     course.active = false;
-    this.courses = this.courses.filter(c => c !== course);
-    this.courseService.updateCourse(course).subscribe();
+    this.courseService.updateCourse(course).subscribe(_ => {
+      this.courses = this.courses.filter(c => c !== course);
+    });
   }
 }
